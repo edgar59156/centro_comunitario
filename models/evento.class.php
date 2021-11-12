@@ -1,0 +1,277 @@
+<?php
+require_once('sistema.class.php');
+
+
+class Evento extends Sistema
+{
+
+    public $id_evento;
+    public $evento;
+    public $contrasena;
+    public $primer_apellido;
+    public $segundo_apellido;
+    public $fotografia;
+    public $telefono;
+
+    /**
+     * Recuperar un arreglo de ponentes
+     *
+     * @return  arreglo
+     */
+    public function read()
+    {
+        $this->connect();
+        $sql = "SELECT  *  from evento";
+        $stmt = $this->con->prepare($sql);
+        $stmt->execute();
+        $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $datos;
+    }
+
+    /**
+     * Recuperar un ponente
+     *@integar id_ponente
+     * @return  self
+     */
+    public function readOne($id_evento)
+    {
+        $this->connect();
+        $sql = "SELECT id_evento,evento,contrasena,nombre,primer_apellido,segundo_apellido,fotografia,telefono  from usuario where id_evento = :id_evento";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bindParam(':id_evento', $id_evento, PDO::PARAM_INT);
+        $stmt->execute();
+        $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $datos = (isset($datos[0])) ? $datos[0] : null;
+        return $datos;
+    }
+
+   
+
+    /**
+     * Crear un ponente e insertarlo en la base de datos
+     *
+     * @return  boolean
+     */
+
+      /*
+    public function create($datos)
+    {
+        $this->connect();
+        $sql = "INSERT into usuario (evento,contrasena) values (:evento,:contrasena)";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bindParam(':evento', $datos['evento'], PDO::PARAM_STR);
+        $datos['contrasena'] = md5($datos['contrasena']);
+        $stmt->bindParam(':contrasena', $datos['contrasena'], PDO::PARAM_STR);
+        $rs = $stmt->execute();
+        return $rs;
+    }
+
+    /**
+     * Modificar los datos de un poenente
+     *
+     * @return  boolean
+     */
+     /*
+    public function update($datos, $id_evento)
+    {
+        require_once('usuario_rol.class.php');
+        $usuarioRol = new UsuarioRol;
+
+        $this->connect();
+        $rs = $usuarioRol->delete($id_evento);
+        if (isset($datos['roles'])) {
+            foreach ($datos['roles'] as $key => $value) {
+                $usuarioRol->create($id_evento, $value);
+            }
+        }
+        $sql = "UPDATE usuario set evento=:correo where id_evento=:id_usuario";
+        if (strlen($datos['contrasena']) > 0) {
+            $sql = "UPDATE usuario set correo=:correo, contrasena=:contrasena where id_usuario=:id_usuario";
+        }
+        $stmt = $this->con->prepare($sql);
+        $stmt->bindParam(':correo', $datos['correo'], PDO::PARAM_STR);
+        if (strlen($datos['contrasena']) > 0) {
+            $datos['contrasena'] = md5($datos['contrasena']);
+            $stmt->bindParam(':contrasena', $datos['contrasena'], PDO::PARAM_STR);
+        }
+        $stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+
+        $stmt->execute();
+        return $stmt->rowCount();
+    }
+
+
+    /**
+     * Eliminar un ponente
+     *
+     * @return  boolean
+     */
+     /*
+    public function delete($id_usuario)
+    {
+        $this->connect();
+        $sql = "delete from usuario where id_usuario=:id_usuario";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+        $rs = $stmt->execute();
+        return $stmt->rowCount();
+    }
+
+    public function credentials($correo){
+        $_SESSION['correo'] = $correo;
+        $this -> connect();
+        $sql = "SELECT r.rol from rol r inner join usuario_rol u on r.id_rol=u.id_rol INNER JOIN usuario us on u.id_usuario= us.id_usuario where us.correo=:correo";
+        $stmt = $this->con->prepare($sql);
+        $stmt->bindParam(':correo', $correo, PDO::PARAM_STR);
+        $stmt->execute();
+        $datos = array();
+        $_SESSION['roles'] = array();
+        $datos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        foreach($datos as $key => $value){
+            array_push($_SESSION['roles'],$value['rol']);
+        }
+        $_SESSION['validado'] = true;
+        
+  
+    }
+    /**
+     * Get the value of contrasena
+     */
+    public function getContrasena()
+    {
+        return $this->contrasena;
+    }
+
+    /**
+     * Set the value of contrasena
+     *
+     * @return  self
+     */
+    public function setContrasena($contrasena)
+    {
+        $this->contrasena = $contrasena;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of correo
+     */
+    public function getCorreo()
+    {
+        return $this->correo;
+    }
+
+    /**
+     * Set the value of correo
+     *
+     * @return  self
+     */
+    public function setCorreo($correo)
+    {
+        $this->correo = $correo;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id_usuario
+     */
+    public function getId_usuario()
+    {
+        return $this->id_usuario;
+    }
+
+    /**
+     * Set the value of id_usuario
+     *
+     * @return  self
+     */
+    public function setId_usuario($id_usuario)
+    {
+        $this->id_usuario = $id_usuario;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of primer_apellido
+     */ 
+    public function getPrimer_apellido()
+    {
+        return $this->primer_apellido;
+    }
+
+    /**
+     * Set the value of primer_apellido
+     *
+     * @return  self
+     */ 
+    public function setPrimer_apellido($primer_apellido)
+    {
+        $this->primer_apellido = $primer_apellido;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of segundo_apellido
+     */ 
+    public function getSegundo_apellido()
+    {
+        return $this->segundo_apellido;
+    }
+
+    /**
+     * Set the value of segundo_apellido
+     *
+     * @return  self
+     */ 
+    public function setSegundo_apellido($segundo_apellido)
+    {
+        $this->segundo_apellido = $segundo_apellido;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of fotografia
+     */ 
+    public function getFotografia()
+    {
+        return $this->fotografia;
+    }
+
+    /**
+     * Set the value of fotografia
+     *
+     * @return  self
+     */ 
+    public function setFotografia($fotografia)
+    {
+        $this->fotografia = $fotografia;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of telefono
+     */ 
+    public function getTelefono()
+    {
+        return $this->telefono;
+    }
+
+    /**
+     * Set the value of telefono
+     *
+     * @return  self
+     */ 
+    public function setTelefono($telefono)
+    {
+        $this->telefono = $telefono;
+
+        return $this;
+    }
+}
+$evento = new Evento;

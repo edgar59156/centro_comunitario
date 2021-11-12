@@ -16,6 +16,8 @@ section {
 }
 
 .footer-distributed {
+  background: linear-gradient(
+120deg, #7f70f5, #0ea0ff);
   background-color: #292c2f;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
@@ -82,6 +84,8 @@ section {
   transition:all .25s;
 }
 
+
+
 .footer-distributed .footer-right a:hover{transform:scale(1.1); -webkit-transform:scale(1.1);}
 
 .footer-distributed p.footer-links a:hover{text-decoration:underline;}
@@ -100,3 +104,14 @@ section {
     line-height: 1.8;
   }
 }
+
+.fondo{
+  background-image: url('/centro_comunitario/image/proyecto/fondo.jpg');
+}
+
+nav.navbar{
+
+  background: linear-gradient(
+120deg, #7f70f5, #0ea0ff);
+}
+

@@ -14,20 +14,20 @@ if(isset($id_usuario)){
 <div class="row">
         <label for="formGroupExampleInput">Nombre </label>
         <div class="col">
-            <input type="text" class="form-control" placeholder="Taller" name="taller" value="<?php echo (isset($id_usuario)) ? $datos['nombre'] : "" ?>">
+            <input type="text" class="form-control"  name="nombre" value="<?php echo (isset($id_usuario)) ? $datos['nombre'] : "" ?>">
         </div>
 </div>
 
     <div class="row">
         <label for="formGroupExampleInput">Primer apellido</label>
         <div class="col">
-            <input type="text" class="form-control" placeholder="Taller" name="taller" value="<?php echo (isset($id_usuario)) ? $datos['primer_apellido'] : "" ?>">
+            <input type="text" class="form-control"  name="primer_apellido" value="<?php echo (isset($id_usuario)) ? $datos['primer_apellido'] : "" ?>">
         </div>
     </div>
     <div class="row">
         <label for="formGroupExampleInput">Segundo apellido</label>
         <div class="col">
-            <input type="text" class="form-control" placeholder="Taller" name="taller" value="<?php echo (isset($id_usuario)) ? $datos['segundo_apellido'] : "" ?>">
+            <input type="text" class="form-control"  name="segundo_apellido" value="<?php echo (isset($id_usuario)) ? $datos['segundo_apellido'] : "" ?>">
         </div>
     </div>
 
