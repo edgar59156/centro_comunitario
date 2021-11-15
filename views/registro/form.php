@@ -33,6 +33,11 @@
 
     <section class="mb-5" style="padding: 1%;">
           <h1 class="mb-5 text-center"><strong>Registrarse</strong></h1>
+</br>
+</br>
+</br>
+</br>
+
 
           <div class="row d-flex justify-content-center">
             <div class="col-md-6">

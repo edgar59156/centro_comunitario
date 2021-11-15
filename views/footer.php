@@ -60,7 +60,7 @@
           <a href="#">Contactactanos </a>
         </p>
 
-        <p>Centro Comunitario&copy; 2021</p>
+       
       </div>
 
     </footer>

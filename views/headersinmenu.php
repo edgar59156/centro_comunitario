@@ -40,7 +40,7 @@
           <li class="nav-item"><a class="nav-link" href="cv.html">Acerca de nosotros</a></li>
         </ul>
         <a class="btn btn-outline-success" href="../panel/login.php" role="button"><b>Iniciar Sesion</b></a>
-        <a class="btn btn-outline-secondary" href="../panel/registro.php" role="button">Registrarse</a>
+        <a class="btn btn-outline-dark" href="../panel/registro.php" role="button">Registrarse</a>
       </div>
     </div>
   </nav>
