@@ -49,13 +49,13 @@
       <div class="footer-left">
 
         <p class="footer-links">
-          <a class="link-1" href="#">Inicio</a>
+          <a class="link-1" href="#">Inicio </a>
 
-          <a href="#">Registrarse</a>
+          <a href="">Registrarse </a>
 
-          <a href="#">Iniciar Sesion</a>
+          <a href="#">Iniciar Sesion </a>
 
-          <a href="#">Acerca de nosotros</a>
+          <a href="#">Acerca de nosotros </a>
 
           <a href="#">Contactactanos </a>
         </p>

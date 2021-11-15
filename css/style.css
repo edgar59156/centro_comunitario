@@ -1,18 +1,9 @@
+
+
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
 
 * {
   font-family: Roboto;
-}
-
-section {
-  width: 100%;
-  display: inline-block;
-  background: #ccc;
-  height: 60vh;
-  text-align: center;
-  font-size: 22px;
-  font-weight: 700;
-  text-decoration: underline;
 }
 
 .footer-distributed {
@@ -24,7 +15,14 @@ section {
   width: 100%;
   text-align: left;
   font: normal 16px sans-serif;
-  padding: 45px 50px;
+  padding-bottom: 3%;
+  padding-top: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  height:30px;
 }
 
 .footer-distributed .footer-left p {
@@ -52,7 +50,7 @@ section {
 }
 
 .footer-distributed .footer-links a:before {
-  content: "·";
+  content: " ";
   font-size: 20px;
   left: 0;
   color: #fff;
@@ -105,13 +103,59 @@ section {
   }
 }
 
-.fondo{
-  background-image: url('/centro_comunitario/image/proyecto/fondo.jpg');
+ /* Carousel styling */
+ #introCarousel,
+ .carousel-inner,
+ .carousel-item,
+ .carousel-item.active {
+   height: 100vh;
+ }
+
+ .carousel-item:nth-child(1) {
+   background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center center;
+ }
+
+ .carousel-item:nth-child(2) {
+   background-image: url('https://mdbootstrap.com/img/Photos/Others/images/77.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center center;
+ }
+
+ .carousel-item:nth-child(3) {
+   background-image: url('https://mdbootstrap.com/img/Photos/Others/images/78.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center center;
+ }
+
+ /* Height for devices larger than 576px */
+ @media (min-width: 992px) {
+   #introCarousel {
+     margin-top: -58.59px;
+   }
+
+   #introCarousel,
+   .carousel-inner,
+   .carousel-item,
+   .carousel-item.active {
+     height: 50vh;
+   }
+ }
+
+ .navbar .nav-link {
+   background-color: linear-gradient(
+    120deg, #7f70f5, #0ea0ff) !important;
+ }
+
+ #footer {
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  height:30px;
+  width:100%;
+  background:#999;
 }
-
-nav.navbar{
-
-  background: linear-gradient(
-120deg, #7f70f5, #0ea0ff);
-}
-

@@ -6,9 +6,10 @@ if (isset($_GET['accion'])) {
     $accion = $_GET['accion'];
 }
 
-require_once('../views\headersinmenu.php');
+require_once('../views/headersinmenu.php');
 
 switch ($accion) {
+
     case 'register':
         $datos = $_POST;
         print_r($datos);

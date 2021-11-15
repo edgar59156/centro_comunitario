@@ -5,7 +5,7 @@ $accion = null;
 if (isset($_GET['accion'])) {
     $accion = $_GET['accion'];
 }
-require_once('../views/headersinmenu.php');
+require_once('../views/headersinmenu1.php');
 switch($accion){
     case 'recovery':
         require_once('views/login/recuperacion.php');
@@ -82,7 +82,7 @@ switch($accion){
     default:
     $datos = $taller->read();
     $datosevento = $evento->read();
-    require_once('../views/inicio/inicio.php');
+    require_once('../views/inicio/inicio2.php');
 }
 require_once('../views/footer.php');
 
