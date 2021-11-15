@@ -74,11 +74,7 @@ class Usuario extends Sistema
      *
      * @return  boolean
      */
-<<<<<<< HEAD
      
-=======
-    
->>>>>>> fff534814c0bc7f3b7ddf99ad681114d26d28805
     public function update($datos, $id_usuario)
     {
         require_once('usuario_rol.class.php');
@@ -113,11 +109,7 @@ class Usuario extends Sistema
      *
      * @return  boolean
      */
-<<<<<<< HEAD
      
-=======
-   
->>>>>>> fff534814c0bc7f3b7ddf99ad681114d26d28805
     public function delete($id_usuario)
     {
         $this->connect();
